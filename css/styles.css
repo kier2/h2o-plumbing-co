@@ -1,0 +1,155 @@
+/* =============================================
+   h2o Plumbing Co. — Custom Styles
+   ============================================= */
+
+/* --- Base --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Scroll Reveal Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+/* --- Mobile Menu --- */
+#mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out;
+}
+
+#mobile-menu.open {
+    max-height: 360px;
+}
+
+/* --- Header Scroll State --- */
+#header {
+    transition: box-shadow 0.3s ease;
+}
+
+#header.scrolled {
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+                0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+/* --- Hero Wave Separator --- */
+.hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.hero-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+
+@media (min-width: 768px) {
+    .hero-wave svg {
+        height: 100px;
+    }
+}
+
+/* --- FAQ Accordion --- */
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out;
+}
+
+.faq-answer.open {
+    max-height: 300px;
+}
+
+.faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-question[aria-expanded="true"] .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* --- Service Card Hover --- */
+.service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1),
+                0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+/* --- Proof Placeholder Cards --- */
+.proof-card {
+    border: 2px dashed #cbd5e1;
+}
+
+/* --- Form Input Focus --- */
+.form-input {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    outline: none;
+}
+
+/* --- Step Connector (desktop timeline) --- */
+.step-line {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .step-line {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        left: calc(50% + 1.75rem);
+        right: calc(-50% + 1.75rem);
+        height: 2px;
+        background: #bfdbfe;
+    }
+    .step-item:last-child .step-line {
+        display: none;
+    }
+}
+
+/* --- Focus Visible (Accessibility) --- */
+*:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* --- Active Nav Link --- */
+.nav-link.active {
+    color: #2563eb;
+    font-weight: 600;
+}
